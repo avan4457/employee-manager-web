@@ -4,26 +4,27 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 1. **Clone the Repository:**
 
-   git clone <repository-url>
+   `git clone repository-url`
 
 2. **Install the dependecies and setup project:**
 
-   cd <app-name>
-   npm install
+   `cd app-name`
+
+   `npm install`
 
 3. **Copy .env file to root of the project:**
 
 4. **Build the application:**
 
-   npm run build
+   `npm run build`
 
 5. **Run the application:**
 
-   npm start
+   `npm start`
 
 6. **Run the local development server:**
 
-   npm run dev
+   `npm run dev`
 
 First, run the development server:
 
