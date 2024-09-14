@@ -16,6 +16,8 @@ import { Delete } from "@mui/icons-material";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { IEmployee } from "@/utils/interfaces/IEmployee";
+import { Gender } from "@/utils/enums/common.enum";
+import { getEnumKeyByValue } from "@/utils/common";
 
 interface EmployeeTableProps {
   employees: IEmployee[];
@@ -61,7 +63,9 @@ const EmployeeTable: React.FC<EmployeeTableProps> = ({
               <TableCell>{employee.lastName}</TableCell>
               <TableCell>{employee.number}</TableCell>
               <TableCell>{employee.email}</TableCell>
-              <TableCell>{employee.gender}</TableCell>
+              <TableCell>
+                {getEnumKeyByValue(Gender, employee.gender as Gender)}
+              </TableCell>
               <TableCell className="flex justify-start items-center gap-2.5">
                 <Button
                   variant="contained"

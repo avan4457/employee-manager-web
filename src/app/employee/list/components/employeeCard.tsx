@@ -9,6 +9,8 @@ import Typography from "@mui/material/Typography";
 import { IEmployee } from "@/utils/interfaces/IEmployee";
 import { Delete, ManageAccounts } from "@mui/icons-material";
 import { useRouter } from "next/navigation";
+import { getEnumKeyByValue } from "@/utils/common";
+import { Gender } from "@/utils/enums/common.enum";
 
 interface IEmployeeCardProps extends IEmployee {
   setDelete: (id: number | undefined | string) => void;
@@ -30,7 +32,7 @@ export default function EmployeeCard(props: IEmployeeCardProps) {
             <li>{`${props.firstName} ${props.lastName}`}</li>
             <li>{props.email}</li>
             <li>{props.number}</li>
-            <li>{props.gender}</li>
+            <li> {getEnumKeyByValue(Gender, props.gender as Gender)}</li>
           </ul>
         </Typography>
       </CardContent>
