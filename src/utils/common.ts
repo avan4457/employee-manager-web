@@ -9,9 +9,9 @@ export function getEnumKeyByValue<T extends Record<string, string>>(
   value: string
 ): keyof T | undefined {
   const entries = Object.entries(enumObj) as [keyof T, string][];
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const foundEntry = entries.find(([key, enumValue]) => {
-    console.log(key);
-    enumValue === value;
+    return enumValue === value;
   });
   return foundEntry ? foundEntry[0] : undefined;
 }
