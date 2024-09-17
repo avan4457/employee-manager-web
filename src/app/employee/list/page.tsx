@@ -1,15 +1,21 @@
-import axios from "axios";
 import EmployeeView from "./components/employeeView";
 
 export default async function EmployeeList() {
   let employees = [];
   try {
-    const res = await axios.get(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/api/employee`
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/employee`,
+      { cache: "no-store" }
     );
-    employees = res.data.data;
+
+    if (!res.ok) {
+      throw new Error("Failed to fetch employees");
+    }
+
+    const data = await res.json();
+    employees = data.data;
   } catch (err) {
-    console.error(err);
+    console.error("Error fetching employees:", err);
   }
 
   return <EmployeeView employees={employees} />;
